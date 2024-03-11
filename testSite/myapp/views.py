@@ -21,5 +21,10 @@ def items(requests) -> render:
     return render(request=requests, template_name='myapp/index.html', context=context)
 
 
-def item_id(request, item_id: int) -> render:
-    return HttpResponse(f'The item id is {item_id}')
+# Рендеринг myapps/details.html - обращение по id к товару
+def details_id(request, my_id: int) -> render:
+    item = Product.objects.get(id=my_id)
+    context = {
+        'item': item
+    }
+    return render(request=request, template_name='myapp/details.html', context=context)
