@@ -7,9 +7,12 @@
 <body>
     <h1>Phone's item list</h1>
     <h4>
+        <!-- <a href="/items/{{item.id}}/">-->
         {% for item in items %}
-
-        Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}
+        <!--Используем относительные переменные пути-->
+        <a href="{% url 'detailItem' item.id %}">
+            <br>ID: {{item.id}} | Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}</br>
+        </a>
 
         {% endfor %}
     </h4>
