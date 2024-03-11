@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render     # для рендеринга шаблона html-страницы
 from django.http import HttpResponse
+from .models import Product
 
 
 # Create your views here.
@@ -9,8 +10,9 @@ def response(request) -> HttpResponse:
 
 
 def contacts(request) -> HttpResponse:
-    return HttpResponse('<h1>Наши контакты</h1>')
+    return render(request=request, template_name='myapp/contact.html')  # указываем путь до contact.html
+
 
 def items(requests) -> HttpResponse:
-    items = ['Iphone', 'Samsung', 'Huawie']
-    return HttpResponse(items[0])
+    items = Product.objects.all()
+    return HttpResponse(items)
