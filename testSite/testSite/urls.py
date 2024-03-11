@@ -6,10 +6,16 @@ from myapp import views
 urlpatterns = [
     # http://127.0.0.1:8000/admin/
     path('admin/', admin.site.urls),
+
     # http://127.0.0.1:8000/greeting/
     path('greeting/', views.response),
+
     # http://127.0.0.1:8000/contacts/
     path('contacts/', views.contacts),
+
     # http://127.0.0.1:8000/items/
-    path('items/', views.items)
+    path('items/', views.items),
+
+    #http://127.0.0.1:8000/items/<item.id>/
+    path('items/<int:item_id>/', views.item_id)
 ]
