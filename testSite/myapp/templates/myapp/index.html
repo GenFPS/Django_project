@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone's items</title>
+</head>
+<body>
+    <h1>Phone's item list</h1>
+    <h4>
+        {% for item in items %}
+
+        Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}
+
+        {% endfor %}
+    </h4>
+</body>
+</html>
