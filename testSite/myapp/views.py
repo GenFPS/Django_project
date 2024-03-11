@@ -5,8 +5,8 @@ from .models import Product
 
 # Create your views here.
 def response(request) -> HttpResponse:
-    return HttpResponse('Here\'s your response\n'
-                        '\nGlad to see you here! =)')
+    return HttpResponse(f'Here\'s your response\n'
+                        f'\nGlad to see you here! =)')
 
 
 def contacts(request) -> HttpResponse:
@@ -15,4 +15,7 @@ def contacts(request) -> HttpResponse:
 
 def items(requests) -> HttpResponse:
     items = Product.objects.all()
-    return HttpResponse(items)
+    context = {
+        'items': items
+    }
+    return render(request=requests, template_name='myapp/index.html', context=context)
