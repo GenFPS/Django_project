@@ -5,3 +5,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Ignoring node_modules
+**/node_modules
