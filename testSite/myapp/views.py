@@ -9,10 +9,6 @@ def response(request) -> HttpResponse:
                         f'\nGlad to see you here! =)')
 
 
-def contacts(request) -> render:
-    return render(request=request, template_name='myapp/contact.html')  # указываем путь до contact.html
-
-
 def items(requests) -> render:
     items = Product.objects.all()
     context = {
@@ -23,6 +19,7 @@ def items(requests) -> render:
 
 # Рендеринг myapps/details.html - обращение по id к товару
 def details_id(request, my_id: int) -> render:
+    # Используем поле id из таблицы данных Product
     item = Product.objects.get(id=my_id)
     context = {
         'item': item

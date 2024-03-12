@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Phone's items</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
 </head>
 <body>
     <h1>Phone's item list</h1>
@@ -10,7 +12,7 @@
         <!-- <a href="/items/{{item.id}}/">-->
         {% for item in items %}
         <!--Используем относительные переменные пути detailItem = myapp/items/-->
-        <a href="{% url 'detailItem' item.id %}">
+        <a href="{% url 'myapp:detailItem' item.id %}">
             <br>ID: {{item.id}} | Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}</br>
         </a>
 
