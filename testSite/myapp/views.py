@@ -9,10 +9,6 @@ def response(request) -> HttpResponse:
                         f'\nGlad to see you here! =)')
 
 
-def contacts(request) -> render:
-    return render(request=request, template_name='myapp/contact.html')  # указываем путь до contact.html
-
-
 def items(requests) -> render:
     items = Product.objects.all()
     context = {
