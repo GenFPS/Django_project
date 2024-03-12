@@ -23,6 +23,7 @@ def items(requests) -> render:
 
 # Рендеринг myapps/details.html - обращение по id к товару
 def details_id(request, my_id: int) -> render:
+    # Используем поле id из таблицы данных Product
     item = Product.objects.get(id=my_id)
     context = {
         'item': item
