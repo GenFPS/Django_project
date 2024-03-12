@@ -10,7 +10,7 @@
         <!-- <a href="/items/{{item.id}}/">-->
         {% for item in items %}
         <!--Используем относительные переменные пути detailItem = myapp/items/-->
-        <a href="{% url 'detailItem' item.id %}">
+        <a href="{% url 'myapp:detailItem' item.id %}">
             <br>ID: {{item.id}} | Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}</br>
         </a>
 
