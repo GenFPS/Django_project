@@ -7,7 +7,8 @@
         {% for item in items %}
         <!--Используем относительные переменные пути detailItem = myapp/items/-->
         <a href="{% url 'myapp:item' item.id %}" class="text-blue-800 font-semibold">
-            <br>ID: {{item.id}} | Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}
+            ID: {{item.id}} | Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}<br>
+            <img src="{{item.images.url}}" alt="">
         </a>
 
         {% endfor %}
