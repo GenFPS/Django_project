@@ -3,12 +3,6 @@ from django.http import HttpResponse
 from .models import Product
 
 
-# Create your views here.
-def response(request) -> HttpResponse:
-    return HttpResponse(f'Here\'s your response\n'
-                        f'\nGlad to see you here! =)')
-
-
 def items(requests) -> render:
     items = Product.objects.all()
     context = {
