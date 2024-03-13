@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static %}       <!--Позволяет импортировать base.html в другие файлы html-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
 </head>
 <body>
-    {% block content %}
+    {% include "myapp/navbar.html" %}
 
+    {% block content %}
+    <!--То, что внутри block content будет уникальным конкретно для этой стр-цы (не будет импортироваться на другие стр-цы)-->
     {% endblock content %}
 </body>
 </html>
