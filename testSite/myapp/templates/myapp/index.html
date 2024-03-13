@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 {% extends "myapp/base.html" %}     <!--Импорт стилей из base.html-->
 {% block content %}
+<main class="mt-10 mx-auto mx-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+    <div class="sm:text-center lg:text-left">
+        <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-5xl ml-8">
+            <span class="block xl:inline">Популярные Смартфоны</span>
+            <span class="block xl:inline text-green-800">По доступным ценам</span>
+        </h1>
+        <h4 class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 ml-8">Вы можете заказать товар по всей России</h4>
+    </div>
 
-    <h4>
-        <!-- <a href="/items/{{item.id}}/">-->
-        {% for item in items %}
-        <!--Используем относительные переменные пути detailItem = myapp/items/-->
-        <a href="{% url 'myapp:item' item.id %}" class="text-blue-800 font-semibold">
-            ID: {{item.id}} | Имя: {{item.name}} | Описание: {{item.description}} | Цена: {{item.price}}<br>
-            <img src="{{item.images.url}}" alt="">
-        </a>
 
-        {% endfor %}
-    </h4>
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 xl:grid-col-3 lg:grid-col-3 gap-5">
+    {% for item in items %}
+    <!--Используем относительные переменные пути detailItem = myapp/items/-->
+    <a href="{% url 'myapp:item' item.id %}" class="text-blue-800 font-semibold">
+        <div class="rounded overflow-hidden shadow-lg">
+            <img class="w-full h-[400px] object-cover" src="{{item.images.url}}">
+            <div class="px-6 py-4">
+                <p class="font-bold text-xl mb-2">{{item.name}}</p>
+                <p class="font-bold text-xl text-black mb-2">RUB {{item.price}}</p>
+                <p class="text-gray-700 text-base">{{item.description}}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+</main>
+
+
 {% endblock content %}
 <!--Нужно для импорта base.html-->
